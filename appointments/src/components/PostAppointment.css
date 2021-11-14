@@ -7,9 +7,10 @@
 
   padding-top: 15px;
 }
-.container {
+.fluid-container {
   background-color: tomato;
-  margin-top: 20px;
+  height: 100vh;
+  /* margin-top: 20px; */
 }
 body {
   background-color: tomato;
