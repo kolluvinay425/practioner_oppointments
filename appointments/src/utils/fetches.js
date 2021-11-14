@@ -1,5 +1,29 @@
 const url = "http://localhost:3001/appointment";
 const userUrl = "http://localhost:3001/users";
+
+export const register = async (data) => {
+  try {
+    const response = await fetch(`${url}/register`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${apiKey}`,
+      },
+    });
+    if (response) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {}
+};
+export const login = async () => {
+  try {
+    const response = await fetch(`${url}/login`);
+    const data = await response.json();
+    return data;
+  } catch (error) {}
+};
 export const putAppointment = async (appointmentId) => {
   const resp = await fetch(`${url}/${appointmentId}`);
   if (resp) {
