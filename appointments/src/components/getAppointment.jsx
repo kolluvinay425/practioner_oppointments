@@ -21,12 +21,14 @@ const GetAppointment = ({ slotDetails, alert, index, alreadyBooked }) => {
     try {
       const resp = await getUser();
       if (resp) {
+        console.log("userObject:", resp);
         setUser(resp);
       }
     } catch (error) {}
   };
   const getApp = async () => {
     const userIndex = user?.bookings?.map((u, i) => user.bookings[i]._id);
+    console.log("userIndex:", userIndex);
     try {
       if (userIndex.includes(slotDetails._id)) {
         console.log("already booked");
@@ -48,6 +50,7 @@ const GetAppointment = ({ slotDetails, alert, index, alreadyBooked }) => {
     } catch (error) {}
   };
   const handlePost = async () => {
+    console.log("appointment initiated");
     try {
       const resp = await postApp(slotDetails._id);
       if (resp) {
